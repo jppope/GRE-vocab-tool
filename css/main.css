@@ -88,14 +88,102 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body{
+	background: url('http://subtlepatterns.com/patterns/food.png');
+}
+
 h1, h2, h3, h4, h5, h6 {font-family: 'Open Sans', sans-serif; font-weight: 800;}
 
+#title{	
+	color:white;
+	font-weight: 800;
+	font-size: 4rem;
+	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+	}
+/* adding a "flip" card look to it */
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000;
+	
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 500px;
+	height: 250px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	border: 2px solid #7c7c7c;
+	border-radius: 10px;
+	padding:20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	background: white;
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+	background: white;
+}
+
+.vertical.flip-container {
+	position: relative;
+}
+
+	.vertical .back {
+		transform: rotateX(180deg);
+	}
+
+	.vertical.flip-container .flipper {
+		transform-origin: 100% 213.5px; /* half of height */
+	}
+
+	.vertical.flip-container:hover .flipper {
+		transform: rotateX(-180deg);
+	}
 
 
+/*fix the button look*/
 
+.button {
+	border:solid #2196f3 2px;
+	background: #2196f3;
+	color:white;
+	border-radius: 5px;
+}
 
-
-
+button:hover, button:focus, .button:hover, .button:focus  {
+	
+	background: rgba(34, 149, 243, 0.75);
+	border:solid #2196f3 2px;
+	color:white;
+	border-radius: 5px;
+}
 
 
 
