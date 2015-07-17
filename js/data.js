@@ -1,4 +1,4 @@
-function returnData(){
+
 var data = [
   {
     "word":"abate",
@@ -3512,9 +3512,6 @@ var data = [
   }
 ];
 
-return data;
-}
-returnData();
 
 		
 	

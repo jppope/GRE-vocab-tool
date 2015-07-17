@@ -1,3 +1,28 @@
+/*
+	
+*/	
+var urlbase = "http://api.wordnik.com:80/v4/word.json/";
+var urlFinish = "/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";	
+	
+for(var i = 0; i < data.length; i++){
+	var word = data[i].word;
+	var urlSynonyms= urlbase + word + urlFinish;
+	function getSynonyms(word){
+	    $.get(urlSynonyms, function(word, status){
+	        var synonymsArray = _.findWhere(word, {relationshipType: "synonym"});
+	        var synonymsString = synonymsArray.words.join(", ");
+	        console.log(synonymsString);
+	        return synonymsString;
+	    });
+	}
+	data[i].synonyms = getSynonyms(word);
+	console.log(data[i].synonyms);
+	
+}	
+
+
+
+
 
 function newWordSet(){
 	var randomNumber = 0;
@@ -13,7 +38,6 @@ function newWordSet(){
 	$("#definition").html("<div class='back'><h3 style='color:darkgrey;'>" + data[randomNumber].definition_value + "</h3></div>");
 	
 }
-	
 	$('#new-word').on('click', function(event) {        
          newWordSet();           
         });
@@ -36,10 +60,15 @@ for(var i = 0; i < data.length; i++){
 
 });
 
- 
 
 
+/*
+function getAndIterateData() {					
+		_.each(data, function(datum){ 
+		    input = datum.word; 	   
+			return input;
+	    });  
+	}
 
-
-
+*/
 
