@@ -26,9 +26,7 @@ for (var i = 0; i < data.length; i++) {
 	            var synonymsString = synonymsArray.words.join(", ");
 	            console.log(synonymsString);
 	        	return synonymsString;
-			}
-            
-            
+			} 
         });
     }   
     var syn = getSynonyms();
